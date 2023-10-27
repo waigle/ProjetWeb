@@ -16,7 +16,7 @@
 
   
   
-  if ($stmt = $mysqli->prepare("SELECT password, role FROM user WHERE email=? limit 1")) 
+  if ($stmt = $mysqli->prepare("SELECT * FROM user WHERE email=? limit 1")) 
   {
    
     $stmt->bind_param("s", $email);
@@ -29,31 +29,30 @@
             if (password_verify($password,$row["password"])) 
             {
                   // Redirection vers la page admin.php ou autres pages en fonction du role (tuteur,admin, etc.);
-
+                  $_SESSION['PROFILE']=$row;
                 //$_SESSION['message'] = "Authentification réussi pour un role inconnu.";
                 if($row["role"]==1){
                   
                   $_SESSION['message'] = "Authentification réussi pour un admin.";
-
+                 
                   header('Location: admin.php');
                 }
                 if($row["role"]==2)
                 {
                 $_SESSION['message'] = "Authentification réussi pour un tuteur.";
-                
                 header('Location: index.php');
               }          
             
               }else { 
                 // Redirection vers la page d'authetification connexion.php
-              $_SESSION['message'] = "Password Incorrect";
+              $_SESSION['message'] = "Erreur de connexion";
                 header('Location: connexion.php');
                 
               }    
         
     }else{
         
-      $_SESSION['message'] = "Identifiant Innexistant";
+      $_SESSION['message'] = "Erreur de connexion";
          header('Location: connexion.php');
         }
     }

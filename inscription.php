@@ -17,8 +17,8 @@
             <label for="prenom" class="form-label">Prénom</label>
             <input type="text" class="form-control " id="prenom" name="prenom" placeholder="Votre prénom..." required>
         </div>
-    </div>
-    <div class="row">
+        </div>
+        <div class="row">
         <div class="col-md-6">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control " id="email" name="email" placeholder="Votre email..." required>

@@ -6,8 +6,7 @@
   $prenom = htmlentities($_POST['prenom']);
   $email =  htmlentities($_POST['email']);
   $password = htmlentities($_POST['password']);
-  
-  $role = 1; // 1 pour membre, 2 pour Admin, 3 pour admin par exemple :o)
+  $role = 1; // 1 pour tuteur, 2 pour responsable PING, 3 pour admin par exemple :o)
 
   // Option pour bcrypt
   $options = [

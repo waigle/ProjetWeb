@@ -8,7 +8,9 @@ session_start();
 <h1>Connexion</h1>
 <?php
     if(isset($_SESSION['message'])) {
-        echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
+        if($_SESSION['message']=="Erreur de connexion")
+        {echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+        }else{echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';}
         echo $_SESSION['message'];
         echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
         echo '</div>';
