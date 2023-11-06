@@ -18,6 +18,9 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Règles</th>
       <th scope="col">Photo</th>
       
   </thead>
