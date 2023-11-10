@@ -46,12 +46,15 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col-2">
-            <!-- Logo de l'Esigelec à gauche -->
-            <img src="Image/Profil.jpg" alt="Profil" class="figure-img img-fluid rounded">
+            
+            <img src="images/Jeuxplateau.jpg" alt="Profil" class="figure-img img-fluid rounded">
         </div>
         <div class="col-8 p-3 mb-2 bg-warning text-dark" >
             <p>PLA (Plateau Ludique Alliance) est une associtation de jeux, qui permet aux membres et amoureux de jeux de plateau de se retrouver et de propager la bonne hummeur.</p>
+            <a href="http://www.esigelec.fr/fr" class="btn btn-info" type="buttons">En savoir plus</a>
+
         </div>
+        
         <div class="col-2">
             <!-- Espace vide pour aligner les boutons -->
         </div>
@@ -61,46 +64,61 @@
         <!-- 1er Colonne pour la présentation des jeux -->
         <div class="card col-4 ">
           <div class="col- ml-2 p-3 mb-2 bg-success text-white">
-              <img src="Image/Monopoly.png" class="card-img-top" alt="...">
-              <h5><b> Monopoly</b></h5>
-              <p> Le poker est un jeu de cartes compétitif où les joueurs parient sur la force de leur main
-                n.</p>
-                <p> <b>1. Distribution des carte : </b> Chaque joueur reçoit un certain nombre de cartes, selon la variante spécifique du poker. </p>
-                <p> <b>2. Mises : </b> Les joeurs parient de l'argent en fonction de la valeur perçue de leur main ou de leurs capacité à bluffer</p>
-                <p> <b>3. Combinaisons de cartes :</b> Les joueurs utilisent lerus cartes privées et/ou les cartes communes pour former la meilleure main possible en suivant des règles de combinaisons prédéfinies. </p>
-                <p> <b>4. Dévoillement des cartes : </b> A la fin, les joueurs restants montrent leurs cartes, et le joueur avec la meilleure main remporte le pot</p>
-                <p>Le poker combine des éléments chance, de psychologie et de stratégie, en faisant un jeu populaire et captivant pour les joueurs du monde entier. </p>
+              <img src="images/Monopoly.png"class="card-img-top" alt="...">
+              <div style="text-align:center">
+                <h5><b>Monopoly</b></h5>
+            </div>  
+              <p> Le Monopoly est un jeu de société de stratégie qui simule l'achat, la vente et la construction de propriétés.</p>
+                <p> <b>1. Objectif : </b> Le but du Monopoly est d'être le dernier joueur en jeu en ayant le monopole sur l'immobilier et en forçant les autres joueurs à faire faillite. </p>
+                <p> <b>2.Propriétés et argent : </b> Chaque joueurs recoit de l'argent au début, et ils peuvent gagner ou perder de l'argent en fonction de leurs transactions immmobilières et des cartes Chance ou Caisses de communauté qu'ils tirent.</p>
+                <p> <b>Fin de jeux : </b> Le jeu se termine lorsqu'il ne reste qu'un joueur en jeu tandis que les autres ont fait faillite en raison de dettes accumulées. </p>
+                <p>Monopoly est un jeu classique qui nécessite des compétences de négociation, de gestion de l'argent et de prise de décision pour réussir. </p>
                 
 
                 <!-- <div class="card text-bg-dark"> -->
-                           
-                        <button  href="pagepoker.php" target="_blank" class="btn btn-primary">
-                        <img src="Image/pokerregle.png" class="card-img" alt="Règle" >
-                            <h5 href="connexion.php" target="_blank" class="btn btn-primary"> Règle </h5>
-                        </button>
+                        
+                <div class="bouton-aligne">
+                        <a href="PageRègles/pagepoker.php" target="_blank" class="btn btn-transparent">
+                            <img src="images/Regle.png" class="card-img" alt="Règle" style="background: transparent;">
+                        </a>
+
+                        <a href="PageReservertation/MonopolyDates.php" target="_blank" class="btn btn-transparent">
+                        <img src="images/Calendrier.png" class="card-img" alt="Règle" style="background: transparent;">
+                        </a>
+                </div>
+
+                        
             </div>                
         </div>
         
         <!-- Colonne pour la deuxième jeux -->
         <div class="col-4">
               <div class="card - ml-2 p-3 mb-2 bg-success text-white">
-              <img src="Image/Risk.jpg" class="card-img-top" alt="...">
-              <h5><b> Risk</b></h5>
-              <p> Le poker est un jeu de cartes compétitif où les joueurs parient sur la force de leur main
-                n.</p>
-                <p> <b>1. Distribution des carte : </b> Chaque joueur reçoit un certain nombre de cartes, selon la variante spécifique du poker. </p>
-                <p> <b>2. Mises : </b> Les joeurs parient de l'argent en fonction de la valeur perçue de leur main ou de leurs capacité à bluffer</p>
-                <p> <b>3. Combinaisons de cartes :</b> Les joueurs utilisent lerus cartes privées et/ou les cartes communes pour former la meilleure main possible en suivant des règles de combinaisons prédéfinies. </p>
-                <p> <b>4. Dévoillement des cartes : </b> A la fin, les joueurs restants montrent leurs cartes, et le joueur avec la meilleure main remporte le pot</p>
-                <p>Le poker combine des éléments chance, de psychologie et de stratégie, en faisant un jeu populaire et captivant pour les joueurs du monde entier. </p>
+              <img src="images/Risk.png" class="card-img-top" alt="...">
+              <div style="text-align:center">
+                <h5><b>Risk</b></h5>
+            </div>  
+              <p> Risk est un jeu de société classique axé sur la stratégie et la conquête mondiale.</p>
+                <p> <b>1. Objectif : </b> Le but de Risk est de conquérir le monde en éliminant les armées adverses et en dominant des territoires clés.</p>
+                <p> <b>2. Armées et territoires : </b> Les joueurs gagnet des territoires en lançant des clées pour des combats et pour occuper des zones clés du plateau.</p>
+                <p> <b>3. Stratégie et diplomatie : </b> Risk combine des décisions tactiques de la formation d'alliances et planifier des attaques sur les continents entiers. </p>
+                <p> <b>4. Fin du jeu : </b> Le jeu se termine lorsqu'un joueur réussit à conquérir tous les territoires ou lorsqu'il n'y a plus de joueurs capables de se défendre.</p>
+                <p>Risk offre une éxpérience immersive et compétitive, mettant à l'épreuve les compétences de planification stratégique et de prise de décision des joueurs. </p>
                 
 
                 <!-- <div class="card text-bg-dark"> -->
-                           
-                        <button  href="pagepoker.php" target="_blank" class="btn btn-primary">
-                        <img src="Image/pokerregle.png" class="card-img" alt="Règle" >
-                            <h5 href="connexion.php" target="_blank" class="btn btn-primary"> Règle </h5>
-                        </button>
+                       
+            <div class="bouton-aligne">
+                <a href="pagepoker.php" target="_blank" class="btn btn-transparent">
+                            <img src="images/Regle.png" class="card-img" alt="Règle" style="background: transparent;">
+                        </a>
+
+                        <a href="PageReservertation/RiskDates.php" target="_blank" class="btn btn-transparent">
+                        <img src="images/Calendrier.png" class="card-img" alt="Règle" style="background: transparent;">
+                        </a>
+                        
+            </div>
+
             </div>                
         </div>
 
@@ -119,8 +137,10 @@
              <div class="col-4 ">
               <div class="card - ml-2 p-3 mb-2 bg-success text-white">
 
-              <img src="Image/Poker.jpg" class="card-img-top" alt="...">
-              <h5><b> Poker</b></h5>
+              <img src="images/Poker.png" class="card-img-top" alt="...">
+              <div style="text-align:center">
+                <h5><b>Poker</b></h5>
+            </div>  
               <p> Le poker est un jeu de cartes compétitif où les joueurs parient sur la force de leur main
                 n.</p>
                 <p> <b>1. Distribution des carte : </b> Chaque joueur reçoit un certain nombre de cartes, selon la variante spécifique du poker. </p>
@@ -132,10 +152,17 @@
 
                 <!-- <div class="card text-bg-dark"> -->
                            
-                        <button  href="pagepoker.php" target="_blank" class="btn btn-primary">
-                        <img src="Image/pokerregle.png" class="card-img" alt="Règle" >
-                            <h5 href="connexion.php" target="_blank" class="btn btn-primary"> Règle </h5>
-                        </button>
+                           
+            <div class="bouton-aligne">
+                <a href="pagepoker.php" target="_blank" class="btn btn-transparent">
+                            <img src="images/Regle.png" class="card-img" alt="Règle" style="background: transparent;">
+                        </a>
+
+                        <a href="PageReservertation/PokerDates.php" target="_blank" class="btn btn-transparent">
+                        <img src="images/Calendrier.png" class="card-img" alt="Règle" style="background: transparent;">
+                        </a>
+            </div>
+
             </div>                
         </div>
 
@@ -152,32 +179,12 @@
 
     </div>
 
-<nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 mt-5">
-  <a class="navbar-brand" href="#">Sujets pour le PING 2024</a>
-
-</nav>
-
-    <div class="container">
-                <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                    <th>Description</th>
-                    <th>Parcours</th>
-                                    </tr>
-            </thead>
-            <tbody>
-        <tr><td>1</td><td>Sujet 1</td><td>Description du sujet 1</td><td>TIC</td></tr><tr><td>2</td><td>Sujet 2</td><td>Description du sujet 2</td><td>ET</td></tr><tr><td>3</td><td>Sujet 3</td><td>Description du sujet 3</td><td>GEE</td></tr><tr><td>4</td><td>Sujet 4</td><td>Description du sujet 4</td><td>TIC</td></tr><tr><td>5</td><td>Sujet 5</td><td>Description du sujet 5</td><td>ET</td></tr><tr><td>6</td><td>Sujet 6</td><td>Description du sujet 6</td><td>GEE</td></tr><tr><td>7</td><td>Sujet 7</td><td>Description du sujet 7</td><td>TIC</td></tr><tr><td>8</td><td>Sujet 8</td><td>Description du sujet 8</td><td>ET</td></tr><tr><td>9</td><td>Sujet 9</td><td>Description du sujet 9</td><td>GEE</td></tr><tr><td>10</td><td>Sujet 10</td><td>Description du sujet 10</td><td>TIC</td></tr><tr><td>11</td><td>test</td><td>test</td><td>GEE</td></tr><tr><td>12</td><td>test</td><td>test1</td><td>TIC</td></tr><tr><td>13</td><td>test</td><td>test1</td><td>TIC</td></tr><tr><td>14</td><td>test</td><td>test</td><td>TIC</td></tr><tr><td>15</td><td>aez</td><td>eza</td><td>TIC</td></tr><tr><td>16</td><td>re</td><td>re</td><td>TIC</td></tr><tr><td>17</td><td>re</td><td>re</td><td>TIC</td></tr><tr><td>18</td><td>re</td><td>re</td><td>TIC</td></tr></table>
-<!-- Boutons "S'inscrire" et "Se connecter" tout en bas et au centre seulement si pas connecté -->
-        <div class="fixed-bottom text-center mb-4">
+    <div class="fixed-bottom text-center mb-4">
             <a href="inscription.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">S'inscrire</a>
             <a href="connexion.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Se connecter</a>
-        </div>
- 
+    </div>
+                      
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
 </html>
 
 <?php
