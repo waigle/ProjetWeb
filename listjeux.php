@@ -23,7 +23,7 @@
       <th scope="col">Règles</th>
       <th scope="col">Photo</th>
       
-  </thead>
+  </thead>s
   <tbody>
   
   <?php
@@ -41,6 +41,9 @@ $ps->execute();
     echo '<tr>';     
     echo  '<th scope="row">'.$row['ID'].'</th>';
     echo'<td>'.$row['NOM'].'</td>';
+    echo'<td>'.$row['description1'].'</td>';
+    echo'<td>'.$row['categorie'].'</td>';
+    echo '<td><img src="images/'.$row['RULES'].'" width="100px" height="100px"></td>';
     echo '<td><img src="images/'.$row['FILE'].'" width="100px" height="100px"></td>';
     echo '</tr>';
   

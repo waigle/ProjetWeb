@@ -16,6 +16,11 @@ session_start();
                 <input type="text" class="form-control " id="nomjeux" name="nomjeux" placeholder="Nom du jeux..." required>
             </div>
 
+            <div class="col-md-6">
+                <label for="nomjeux" class="form-label">Catégorie</label>
+                <input type="text" class="form-control " id="categoriejeux" name="categoriejeux" placeholder="catégorie du jeux..." required>
+            </div>
+
             <!--<div class="col-md-6">
                 
                 <li class="nav-item dropdown">
@@ -52,7 +57,7 @@ session_start();
 
             <div class="col-md-6">
               <label  class="form-label">Ajout d'une photo</label>
-              <input type="file" name="userfile2" class="form-control" />
+              <input type="file" name="userfile" class="form-control" />
             </div>
 
         </div>
