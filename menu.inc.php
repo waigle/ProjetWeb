@@ -19,7 +19,7 @@ if((isset($_SESSION['PROFILE']) ))
 {
 $nom=$_SESSION['PROFILE']['nom'];
   echo'<li class="nav-item">';
-  echo '<a class="nav-link" href="chez.php">Chez '.$nom.'</a>';
+  echo '<a class="nav-link" href="session.php">Chez '.$nom.'</a>';
   echo'</li>';
 }
 ?>

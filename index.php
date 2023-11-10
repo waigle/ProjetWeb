@@ -14,6 +14,15 @@
 
 
 <?php
+
+
+// Connexion :
+require_once("connpdo.php");
+$req="SELECT * FROM jeux";
+$ps=$pdo->prepare($req);
+$ps->execute();
+
+
     if(isset($_SESSION['message'])) {
         echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
         echo $_SESSION['message'];
@@ -61,11 +70,13 @@
     </div>
 
     <div class="row mt-4">
+        
         <!-- 1er Colonne pour la présentation des jeux -->
         <div class="card col-4 ">
           <div class="col- ml-2 p-3 mb-2 bg-success text-white">
               <img src="images/Monopoly.png"class="card-img-top" alt="...">
               <div style="text-align:center">
+                <!--<h5><b><?php echo'<td>'.$row['NOM'].'</td>'?></b></h5>-->
                 <h5><b>Monopoly</b></h5>
             </div>  
               <p> Le Monopoly est un jeu de société de stratégie qui simule l'achat, la vente et la construction de propriétés.</p>
