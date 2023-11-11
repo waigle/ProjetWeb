@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 10 Novembre 2023 à 15:19
--- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Hôte : 127.0.0.1
+-- Généré le : sam. 11 nov. 2023 à 16:46
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `amphi2`
+-- Base de données : `amphi2`
 --
 
 -- --------------------------------------------------------
@@ -33,10 +34,10 @@ CREATE TABLE `jeux` (
   `RULES` varchar(5000) NOT NULL,
   `categorie` int(11) NOT NULL,
   `description1` varchar(50000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Contenu de la table `jeux`
+-- Déchargement des données de la table `jeux`
 --
 
 INSERT INTO `jeux` (`ID`, `NOM`, `FILE`, `RULES`, `categorie`, `description1`) VALUES
@@ -51,7 +52,7 @@ INSERT INTO `jeux` (`ID`, `NOM`, `FILE`, `RULES`, `categorie`, `description1`) V
 CREATE TABLE `liste_jeu` (
   `nom` varchar(50) NOT NULL,
   `id_jeu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,7 @@ CREATE TABLE `liste_jeu` (
 CREATE TABLE `participe` (
   `participant` varchar(50) NOT NULL,
   `id_jeu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -71,14 +72,21 @@ CREATE TABLE `participe` (
 --
 
 CREATE TABLE `session` (
-  `id_session` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `horaire` double NOT NULL,
-  `duree` double NOT NULL,
+  `ID` int(11) NOT NULL,
   `lieu` int(11) NOT NULL,
   `nb_inscrits` int(11) NOT NULL,
-  `id_jeu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_jeu` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `heure_debut` time NOT NULL,
+  `heure_fin` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Déchargement des données de la table `session`
+--
+
+INSERT INTO `session` (`ID`, `lieu`, `nb_inscrits`, `id_jeu`, `date`, `heure_debut`, `heure_fin`) VALUES
+(1, 0, 0, 9, '2023-11-09', '17:30:00', '19:40:00');
 
 -- --------------------------------------------------------
 
@@ -92,19 +100,18 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Contenu de la table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`nom`, `prenom`, `email`, `password`, `role`) VALUES
 ('bacha', 'baptiste', 'baptiste@gmail.com', '$2y$10$hVb5lz8zSFv34BTDwjbSZekxQNUI26vgu.KnjDBR5DhS4qsFlTwBC', 2),
-('aa', 'bb', 'bb@gmail.com', '$2y$12$NyaYi3wncWQzmkRf2g7r8.ULKAHBCc/U3SGDIbnoqFha0/NHXryme', 1),
-('fremaux', 'jolan', 'jolan@gmail.com', '$2y$10$dkDgZCJxdQlh4F66QgNeruFGOHSBTqXd3UlkYBLAyCjg4fE6B81Jm', 2);
+('Fremaux', 'Jolan', 'jolan.fremaux@gmail.com', '$2y$12$m1k.Dnu1YoZIF7XVkBQt9etRDt2vH/dWrB4HyVYUHIYE5Hx7QNyby', 1);
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -131,8 +138,8 @@ ALTER TABLE `participe`
 -- Index pour la table `session`
 --
 ALTER TABLE `session`
-  ADD PRIMARY KEY (`id_session`),
-  ADD KEY `id_session` (`id_session`),
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `id_session` (`ID`),
   ADD KEY `id_jeu` (`id_jeu`);
 
 --
@@ -143,7 +150,7 @@ ALTER TABLE `user`
   ADD KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -151,29 +158,13 @@ ALTER TABLE `user`
 --
 ALTER TABLE `jeux`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- Contraintes pour les tables exportées
---
 
 --
--- Contraintes pour la table `liste_jeu`
---
-ALTER TABLE `liste_jeu`
-  ADD CONSTRAINT `liste_jeu_ibfk_1` FOREIGN KEY (`nom`) REFERENCES `user` (`email`),
-  ADD CONSTRAINT `liste_jeu_ibfk_2` FOREIGN KEY (`id_jeu`) REFERENCES `jeu` (`ID`);
-
---
--- Contraintes pour la table `participe`
---
-ALTER TABLE `participe`
-  ADD CONSTRAINT `participe_ibfk_1` FOREIGN KEY (`participant`) REFERENCES `user` (`email`),
-  ADD CONSTRAINT `participe_ibfk_2` FOREIGN KEY (`id_jeu`) REFERENCES `jeu` (`ID`);
-
---
--- Contraintes pour la table `session`
+-- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`id_jeu`) REFERENCES `jeu` (`ID`);
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
