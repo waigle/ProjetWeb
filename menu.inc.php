@@ -32,6 +32,9 @@ if ($_SESSION['PROFILE']['role'] == 2) {
   echo'<li class="nav-item">';
   echo '<a class="nav-link" href="session.php">Paramétrer session de jeu </a>';
   echo'</li>';
+  echo'<li class="nav-item">';
+  echo '<a class="nav-link" href="list.php">Liste Utilisateurs </a>';
+  echo'</li>';
 }
 ?>
 

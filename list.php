@@ -13,7 +13,7 @@
 
     $titre = "Liste Utilisateur";
     include 'header.inc.php';
-    include 'menuadmin.php';
+    include 'menu.inc.php';
 
 ?>
 <div class="container">

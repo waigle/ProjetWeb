@@ -1,6 +1,6 @@
 <?php
         
-    
+    session_start();
 
 
     $titre = "Liste des jeux";
@@ -23,7 +23,7 @@
       <th scope="col">Règles</th>
       <th scope="col">Photo</th>
       
-  </thead>s
+  </thead>
   <tbody>
   
   <?php
