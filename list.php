@@ -1,5 +1,13 @@
 <?php
-    require_once("roleadmin.php");    
+    session_start();
+    if(!isset($_SESSION['PROFILE'])) {
+        $_SESSION['erreur'] = "Vous devez être connecté";
+        header('Location: index.php');
+    }
+    if ($_SESSION['PROFILE']['role'] != 2) {
+        $_SESSION['erreur'] = "Vous n'avez pas accès à cette page";
+        header('Location: index.php');
+      }    
     
 
 

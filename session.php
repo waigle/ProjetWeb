@@ -4,6 +4,10 @@
         $_SESSION['erreur'] = "Vous devez être connecté";
         header('Location: index.php');
     }
+    if ($_SESSION['PROFILE']['role'] != 2) {
+        $_SESSION['erreur'] = "Vous n'avez pas accès à cette page";
+        header('Location: index.php');
+      }
     $login = $_SESSION['PROFILE']['email'];
     $titre = "Session ".$login;
     include 'header.inc.php';

@@ -17,9 +17,20 @@
 
 if((isset($_SESSION['PROFILE']) ))
 {
-$nom=$_SESSION['PROFILE']['nom'];
+$prenom=$_SESSION['PROFILE']['prenom'];
   echo'<li class="nav-item">';
-  echo '<a class="nav-link" href="session.php">Chez '.$nom.'</a>';
+  echo '<a class="nav-link" href="chez.php">Chez '.$prenom.'</a>';
+  echo'</li>';
+}
+if ($_SESSION['PROFILE']['role'] == 2) {
+  echo'<li class="nav-item">';
+  echo '<a class="nav-link" href="jeux.php">Ajouter un jeu </a>';
+  echo'</li>';
+  echo'<li class="nav-item">';
+  echo '<a class="nav-link" href="listjeux.php">Accéder à la liste des jeux </a>';
+  echo'</li>';
+  echo'<li class="nav-item">';
+  echo '<a class="nav-link" href="session.php">Paramétrer session de jeu </a>';
   echo'</li>';
 }
 ?>
