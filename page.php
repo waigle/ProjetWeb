@@ -132,7 +132,7 @@ $resultat = $pdo->query($requete);
         echo "<div class='jeu'>";
         echo "<h2>" . $jeu['NOM'] . "</h2>";
         echo "<p>" . $jeu['description1'] . "</p>";
-        echo "<img src='" . $jeu['FILE'] . "' alt='Image du jeu'>";
+        echo '<td><img src="images/'.$jeu['FILE'].'" width="100px" height="100px"></td>';
         echo "<a class='rules-button' href='download.php?id=" . $jeu['ID'] . "'>Télécharger les règles (PDF)</a>";
         echo "</div>";
     }
