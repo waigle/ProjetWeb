@@ -78,12 +78,38 @@
             margin: 20px;
         }
 
+        .jeu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
         .jeu {
-            border: 5px solid #ccc;
+            width: 30%; /* Ajustez la largeur en fonction de vos besoins */
+            border: 1px solid #ccc;
             border-radius: 8px;
             padding: 10px;
             margin-bottom: 15px;
             background-color: #fff;
+        }
+
+        .jeu img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .rules-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -98,20 +124,25 @@ $requete = "SELECT * FROM jeux";
 $resultat = $pdo->query($requete);
 ?>
 
-<?php
-// Afficher les jeux sur la page web
-while ($jeu = $resultat->fetch(PDO::FETCH_ASSOC)) {
-    echo "<div class='jeu'>";
-    echo "<h2>" . $jeu['NOM'] . "</h2>";
-    echo "<p>" . $jeu['description1'] . "</p>";
-    echo '<td><img src="images/'.$jeu['RULES'].'" width="100px" height="100px"></td>';
-    echo '<td><img src="images/'.$jeu['FILE'].'" width="100px" height="100px"></td>';
-    echo "</div>";
-}
-?>
+
+<div class="jeu-container">
+    <?php
+    // Afficher les jeux sur la page web
+    while ($jeu = $resultat->fetch(PDO::FETCH_ASSOC)) {
+        echo "<div class='jeu'>";
+        echo "<h2>" . $jeu['NOM'] . "</h2>";
+        echo "<p>" . $jeu['description1'] . "</p>";
+        echo "<img src='" . $jeu['FILE'] . "' alt='Image du jeu'>";
+        echo "<a class='rules-button' href='download.php?id=" . $jeu['ID'] . "'>Télécharger les règles (PDF)</a>";
+        echo "</div>";
+    }
+    ?>
+</div>
 
 </body>
 </html>
+
+
 
 
 <?php
