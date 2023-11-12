@@ -16,11 +16,7 @@
 <?php
 
 
-// Connexion :
-require_once("connpdo.php");
-$req="SELECT * FROM jeux";
-$ps=$pdo->prepare($req);
-$ps->execute();
+
 
 
     if(isset($_SESSION['message'])) {
@@ -76,8 +72,15 @@ $ps->execute();
           <div class="col- ml-2 p-3 mb-2 bg-success text-white">
               <img src="images/Monopoly.png"class="card-img-top" alt="...">
               <div style="text-align:center">
-                <!--<h5><b><?php echo'<td>'.$row['NOM'].'</td>'?></b></h5>-->
-                <h5><b>Monopoly</b></h5>
+                <h5><b><?php 
+                // Connexion :
+require_once("connpdo.php");
+$req="SELECT NOM FROM jeux WHERE ID =9";  
+$ps=$pdo->prepare($req);
+$ps->execute();
+$row=$ps->fetch();   
+    echo  '<th scope="row">'.$row['NOM'].'</th>';?></b></h5>
+                <!--<h5><b>Monopoly</b></h5>-->
             </div>  
               <p> Le Monopoly est un jeu de société de stratégie qui simule l'achat, la vente et la construction de propriétés.</p>
                 <p> <b>1. Objectif : </b> Le but du Monopoly est d'être le dernier joueur en jeu en ayant le monopole sur l'immobilier et en forçant les autres joueurs à faire faillite. </p>
