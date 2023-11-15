@@ -32,7 +32,37 @@
     echo'<li>';
     echo '<a class="nav-link">'.$login.'</a>';
     echo'</li>';
+    echo'<li>';
+    echo "Vos jeux mis en favoris :";
+    echo'</li>';
+    // Connexion :
+require_once("connpdo.php");
+// Requête SQL pour obtenir la liste des noms de jeux pour un utilisateur donné
+$req="SELECT NOM FROM jeux
+JOIN liste_jeu ON jeux.ID = liste_jeu.id_jeu
+JOIN user ON liste_jeu.nom = user.email
+WHERE email = :login";
+$stmt = $pdo->prepare($req);
+$stmt->bindParam(':email_utilisateur', $email_utilisateur, PDO::PARAM_STR);
+$stmt->execute();
+
+// Récupérer les résultats de la requête
+$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<h1>Liste des Jeux de l'Utilisateur</h1>
+
+<ul>
+    <?php
+    // Afficher la liste des noms de jeux
+    foreach ($resultats as $jeu) {
+        echo "<li>" . $jeu['nom_jeu'] . "</li>";
+    }
+    ?>
+</ul>
+
+?>
+
 </div>
 <?php
     include 'footer.inc.php';
