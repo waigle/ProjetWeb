@@ -61,7 +61,6 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 </ul>
 
-?>
 
 </div>
 <?php

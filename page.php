@@ -1,11 +1,9 @@
 <?php
     session_start();
-    $titre = "PAGE";
+    $titre = "Accueil";
     $file = '/Profil.jpg'; 
     include 'header.inc.php';
-    include 'menu.inc.php';
-    
-
+    include 'menu.inc.php'; 
 
 ?>
 
@@ -14,19 +12,14 @@
 
 
 <?php
-
-
-
-
-
-    if(isset($_SESSION['message'])) {
-        echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
-        echo $_SESSION['message'];
-        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
-        echo '</div>';
-        unset($_SESSION['message']);
+if(isset($_SESSION['message'])) {
+    echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
+    echo $_SESSION['message'];
+    echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+    echo '</div>';
+    unset($_SESSION['message']);
     }
-    ?>
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -51,7 +44,6 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col-2">
-            
             <img src="images/Jeuxplateau.jpg" alt="Profil" class="figure-img img-fluid rounded">
         </div>
         <div class="col-8 p-3 mb-2 bg-warning text-dark" >
@@ -64,7 +56,7 @@
             <!-- Espace vide pour aligner les boutons -->
         </div>
     </div>
-
+</div>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,23 +118,47 @@ $resultat = $pdo->query($requete);
 
 
 <div class="jeu-container">
-    <?php
+<?php
     // Afficher les jeux sur la page web
     while ($jeu = $resultat->fetch(PDO::FETCH_ASSOC)) {
         echo "<div class='jeu'>";
-        echo "<h2>" . $jeu['NOM'] . "</h2>";
-        echo "<p>" . $jeu['description1'] . "</p>";
-        echo '<td><img src="images/'.$jeu['FILE'].'" width="100px" height="100px"></td>';
-        echo "<a class='rules-button' href='download.php?id=" . $jeu['ID'] . "'>Télécharger les règles (PDF)</a>";
+        echo "<h2>" . htmlspecialchars($jeu['NOM']) . "</h2>";
+        echo "<p>" . htmlspecialchars($jeu['description1']) . "</p>";
+        echo '<img src="images/' . htmlspecialchars($jeu['FILE']) . '" width="100px" height="100px">';
+        
+        // Affiche le bouton pour télécharger les règles
+        echo '<a href="download.php?id=' . htmlspecialchars($jeu['ID']) . '"><img src="images/Regle.png" class="card-img" alt="Règle" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
+        
+        // Affiche le bouton pour réserver une date        
+        echo '<a href="PageReservertation/MonopolyDates.php"><img src="images/Calendrier.png" class="card-img" alt="Calendrier" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
+        
         echo "</div>";
     }
+?>
+
+    
+</div>
+
+
+<!-- Div qui affiche les bouttons s'inscrire et se connecter si l'utilisateur n'est pas connecté et n'affiche rien si il est connecté-->
+<div class="fixed-bottom text-center mb-4">
+    <?php
+
+        // Vérifier si l'utilisateur est connecté
+        if(isset($_SESSION['PROFILE'])) {
+            // Utilisateur connecté
+            
+        } else {
+            // Utilisateur non connecté, affichez les boutons "S'inscrire" et "Se connecter"
+            echo '<a href="inscription.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">S\'inscrire</a>';
+            echo '<a href="connexion.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Se connecter</a>';
+        }
     ?>
 </div>
 
+
 </body>
 </html>
-
-
 
 
 <?php
