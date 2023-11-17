@@ -32,25 +32,40 @@
     echo'<li>';
     echo '<a class="nav-link">'.$login.'</a>';
     echo'</li>';
-    echo'<li>';
-    echo "Vos jeux mis en favoris :";
-    echo'</li>';
-    // Connexion :
+    
+
+// Inclure le fichier de connexion PDO
 require_once("connpdo.php");
+
+// Récupérer l'e-mail de l'utilisateur depuis la session
+// Assurez-vous que la session est déjà démarrée avant cette ligne
+$login = $_SESSION['PROFILE']['email'];
+
 // Requête SQL pour obtenir la liste des noms de jeux pour un utilisateur donné
-$req="SELECT NOM FROM jeux
-JOIN liste_jeu ON jeux.ID = liste_jeu.id_jeu
-JOIN user ON liste_jeu.nom = user.email
-WHERE email = :login";
-$stmt = $pdo->prepare($req);
-$stmt->bindParam(':email_utilisateur', $email_utilisateur, PDO::PARAM_STR);
+$requete = "SELECT jeux.NOM AS nom_jeu
+            FROM jeux
+            JOIN liste_jeu ON liste_jeu.id_jeu = jeux.ID
+            JOIN user ON liste_jeu.mail = user.email
+            WHERE user.email = :login";
+
+$stmt = $pdo->prepare($requete);
+$stmt->bindParam(':login', $login, PDO::PARAM_STR);
 $stmt->execute();
 
 // Récupérer les résultats de la requête
 $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<h1>Liste des Jeux de l'Utilisateur</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Jeux de l'Utilisateur</title>
+</head>
+<body>
+
+<h3>Mes jeux favoris : </h3>
 
 <ul>
     <?php
@@ -61,8 +76,8 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 </ul>
 
-
-</div>
+</body>
+</html>
 <?php
     include 'footer.inc.php';
 ?>
