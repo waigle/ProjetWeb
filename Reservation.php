@@ -4,28 +4,25 @@
         $_SESSION['erreur'] = "Vous devez être connecté";
         header('Location: index.php');
     }
-    if ($_SESSION['PROFILE']['role'] != 2) {
-        $_SESSION['erreur'] = "Vous n'avez pas accès à cette page";
-        header('Location: index.php');
-      } 
+    
     $login = $_SESSION['PROFILE']['email'];
-    $titre = "Session ".$login;
+    $titre = "Reservation ".$login;
     include 'header.inc.php';
     include 'menu.inc.php';
 ?>
 <div class="container">
 
-<h1>Page d'ajout de session </h1>
+<h1>Page pour reserver un jeu pour une date </h1>
 
 <div class="container">
 
-<form  method="POST" action="tt_session.php" enctype="multipart/form-data">
+<form  method="POST" action="tt_sessionDate.php" enctype="multipart/form-data">
     <div class="container">
     <div class="row my-3">
         <div class="row">
 
             <div class="col-md-6">
-                <label for="jeusession" class="form-label">ID du jeu </label>
+                <label for="jeusession" class="form-label">Rentrer le nom du jeu souhaité : </label>
                 <input type="text" class="form-control " id="jeusession" name="jeusession" placeholder="Rentrez le jeu..." required>
             </div>
 

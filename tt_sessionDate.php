@@ -13,14 +13,12 @@ $params=array($jeu,$date,$hdebut,$hfin);
 
 
 
-
-
 if($ps->execute($params)) {
-$_SESSION['message'] = "Ajout réussi.";
-
-header("location:listjeux.php");
-} else {  $_SESSION['message'] = "Problème Ajout.";
-
-    header("location:listjeux111.php");  }
-
+  $_SESSION['message'] = "Ajout réussi.";
+    
+      header("location:Reservation.php");
+      } else {  $_SESSION['message'] = "Problème Ajout.";
+      
+          header("location:Reservation111.php");  
+        }
 ?>

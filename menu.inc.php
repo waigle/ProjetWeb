@@ -9,18 +9,25 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
-        <!--<li class="nav-item">
-          <a class="nav-link" href="page.php">Une page</a>
-        </li> -->
+        
+        
+        
 
         <?php
 
-if((isset($_SESSION['PROFILE']) ))
-{
-$prenom=$_SESSION['PROFILE']['prenom'];
-  echo'<li class="nav-item">';
+if(isset($_SESSION['PROFILE'])) {
+  $prenom = $_SESSION['PROFILE']['prenom'];
+
+  echo '<li class="nav-item">';
   echo '<a class="nav-link" href="chez.php">Chez '.$prenom.'</a>';
-  echo'</li>';
+  echo '</li>';
+
+  echo '<li class="nav-item">';
+  echo '<a class="nav-link" href="Reservation.php">Réserver une date</a>';
+  echo '</li>';
+
+  
+  
 }
 if ($_SESSION['PROFILE']['role'] == 2) {
   echo'<li class="nav-item">';
