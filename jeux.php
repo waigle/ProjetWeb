@@ -11,6 +11,15 @@ if ($_SESSION['PROFILE']['role'] != 2) {
     $titre = "Ajout Jeux";
     include 'header.inc.php';
     include 'menu.inc.php';
+
+// Inclure le fichier de connexion PDO
+require_once("connpdo.php");
+
+    // Requête SQL pour récupérer les catégories
+$requete_categories = "SELECT * FROM categorie";
+$stmt_categories = $pdo->query($requete_categories);
+$categories = $stmt_categories->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <div class="container">
 <h1>Ajout d'un Jeux </h1>
@@ -25,23 +34,18 @@ if ($_SESSION['PROFILE']['role'] != 2) {
             </div>
 
             <div class="col-md-6">
-                <label for="nomjeux" class="form-label">Catégorie</label>
-                <input type="text" class="form-control " id="categoriejeux" name="categoriejeux" placeholder="catégorie du jeux..." required>
+            <label for="categorie_jeu">Catégorie :</label>
+    <select id="categorie_jeu" name="categorie_jeu" required>
+        <?php
+        // Afficher les options du menu déroulant avec les catégories
+        foreach ($categories as $categorie) {
+            echo "<option value='" . $categorie['id_categorie'] . "'>" . $categorie['nom_categorie'] . "</option>";
+        }
+        ?>
+    </select><br>
             </div>
 
-            <!--<div class="col-md-6">
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                         Catégorie
-                    </a>
-                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1.</a></li>
-                        <li><a class="dropdown-item" href="#">2.</a></li>
-                        <li><a class="dropdown-item" href="#">3.</a></li>
-                     </ul>
-                </li>
-            </div>-->
+            
 
         </div>
 

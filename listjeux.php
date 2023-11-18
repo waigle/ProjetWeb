@@ -30,7 +30,8 @@
 
 // Connexion :
 require_once("connpdo.php");
-$req = "SELECT * FROM jeux";
+$req = "SELECT * FROM jeux
+JOIN categorie ON jeux.categorie = categorie.id_categorie";
 $ps = $pdo->prepare($req);
 $ps->execute();
 
@@ -39,7 +40,7 @@ while ($row = $ps->fetch()) {
     echo '<th scope="row">' . htmlspecialchars($row['ID']) . '</th>';
     echo '<td>' . htmlspecialchars($row['NOM']) . '</td>';
     echo '<td>' . htmlspecialchars($row['description1']) . '</td>';
-    echo '<td>' . htmlspecialchars($row['categorie']) . '</td>';
+    echo '<td>' . htmlspecialchars($row['nom_categorie']) . '</td>';
     echo '<td><img src="images/' . htmlspecialchars($row['RULES']) . '" width="100px" height="100px"></td>';
     echo '<td><img src="images/' . htmlspecialchars($row['FILE']) . '" width="100px" height="100px"></td>';
     echo '</tr>';
