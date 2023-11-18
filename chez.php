@@ -52,8 +52,27 @@ $stmt = $pdo->prepare($requete);
 $stmt->bindParam(':login', $login, PDO::PARAM_STR);
 $stmt->execute();
 
+// Pour récuperer le like de la page like.php
 // Récupérer les résultats de la requête
 $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+// Récupérer l'ID du jeu aimé depuis l'URL
+$jeuId_aime = isset($_GET['id_jeu']) ? $_GET['id_jeu'] : null;
+
+// Requête SQL pour obtenir la liste des noms de jeux aimés par l'utilisateur
+$requete_aime = "SELECT DISTINCT jeux.NOM AS nom_jeu
+                FROM jeux
+                JOIN liste_jeu ON liste_jeu.id_jeu = jeux.ID
+                WHERE liste_jeu.mail = :mail";
+
+$stmt_aime = $pdo->prepare($requete_aime);
+$stmt_aime->bindParam(':mail', $login, PDO::PARAM_STR);
+$stmt_aime->execute();
+
+// Récupérer les résultats de la requête
+$resultats_aime = $stmt_aime->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -70,8 +89,8 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <ul>
     <?php
     // Afficher la liste des noms de jeux
-    foreach ($resultats as $jeu) {
-        echo "<li>" . $jeu['nom_jeu'] . "</li>";
+    foreach ($resultats_aime as $jeu_aime) {
+        echo "<li>" . $jeu_aime['nom_jeu'] . "</li>";
     }
     ?>
 </ul>
@@ -79,5 +98,5 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 </html>
 <?php
-    include 'footer.inc.php';
+include 'footer.inc.php';
 ?>

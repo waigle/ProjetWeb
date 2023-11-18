@@ -34,8 +34,8 @@ $categories = $stmt_categories->fetchAll(PDO::FETCH_ASSOC);
             </div>
 
             <div class="col-md-6">
-            <label for="categorie_jeu">Catégorie :</label>
-    <select id="categorie_jeu" name="categorie_jeu" required>
+            <label for="categorie_jeu">Catégorie</label>
+            <select id="categorie_jeu" name="categorie_jeu" required>
         <?php
         // Afficher les options du menu déroulant avec les catégories
         foreach ($categories as $categorie) {

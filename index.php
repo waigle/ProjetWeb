@@ -129,6 +129,11 @@ $resultat = $pdo->query($requete);
         echo '<a href="download.php?id=' . $jeu['ID'] . '"><img src="images/Regle.png" class="card-img" alt="Règle" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
         // Affiche le bouton pour réserver une date        
         echo '<a href="PageReservertation/MonopolyDates.php"><img src="images/Calendrier.png" class="card-img" alt="Calendrier" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
+
+            //Affiche le boutton pour like un jeu seulement si on est connecté
+            if(isset($_SESSION['PROFILE'])) {
+                echo '<a href="like.php?id=' . $jeu['ID'] . '"><img src="images/coeur.png" class="card-img" alt="Like" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
+            }
         echo "</div>";
         }
         ?>
@@ -139,7 +144,6 @@ $resultat = $pdo->query($requete);
 <!-- Div qui affiche les bouttons s'inscrire et se connecter si l'utilisateur n'est pas connecté et n'affiche rien si il est connecté-->
 <div class="fixed-bottom text-center mb-4">
     <?php
-
         // Vérifier si l'utilisateur est connecté
         if(isset($_SESSION['PROFILE'])) {
             // Utilisateur connecté
@@ -151,7 +155,6 @@ $resultat = $pdo->query($requete);
         }
     ?>
 </div>
-
 
 </body>
 </html>
