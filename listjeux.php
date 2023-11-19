@@ -41,8 +41,9 @@ while ($row = $ps->fetch()) {
     echo '<td>' . htmlspecialchars($row['NOM']) . '</td>';
     echo '<td>' . htmlspecialchars($row['description1']) . '</td>';
     echo '<td>' . htmlspecialchars($row['nom_categorie']) . '</td>';
-    echo '<td><img src="images/' . htmlspecialchars($row['RULES']) . '" width="100px" height="100px"></td>';
-    echo '<td><img src="images/' . htmlspecialchars($row['FILE']) . '" width="100px" height="100px"></td>';
+    echo '<td><img src="RèglesJeux/' . htmlspecialchars($row['RULES']) . '" width="100px" height="100px"></td>';
+    echo '<td><img src="imagesJeux/' . htmlspecialchars($row['FILE']) . '" width="100px" height="100px"></td>';
+    echo'<td><a href="deletejeu.php?ID='.$row['ID'].'" >Supprimer</a></td>';
     echo '</tr>';
 }
 

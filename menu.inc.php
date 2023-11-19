@@ -22,9 +22,7 @@ if(isset($_SESSION['PROFILE'])) {
   echo '<a class="nav-link" href="chez.php">Chez '.$prenom.'</a>';
   echo '</li>';
 
-  echo '<li class="nav-item">';
-  echo '<a class="nav-link" href="Reservation.php">Réserver une date</a>';
-  echo '</li>';
+  
 
   
   

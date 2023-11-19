@@ -7,10 +7,10 @@ $categorie=$_POST['categorie_jeu'];
 $description1=$_POST['descriptionjeux'];
 $photo=$_FILES['userfile']['name'];//recupérer le nom de fichier
 $fichierTemp=$_FILES['userfile']['tmp_name'];//recupérer le nom du fichier temporaire téléchargé sur le serveur.
-move_uploaded_file($fichierTemp,'./images/'.$photo);//transférer le fichier dans le dossier image du projet
+move_uploaded_file($fichierTemp,'./imagesJeux/'.$photo);//transférer le fichier dans le dossier image du projet
 $regles=$_FILES['userfile1']['name'];//recupérer le nom de fichier
 $fichierTemp=$_FILES['userfile1']['tmp_name'];//recupérer le nom du fichier temporaire téléchargé sur le serveur.
-move_uploaded_file($fichierTemp,'./images/'.$regles);//transférer le fichier dans le dossier image du projet*/
+move_uploaded_file($fichierTemp,'./RèglesJeux/'.$regles);//transférer le fichier dans le dossier image du projet*/
 
 require_once("connpdo.php");
 $req="INSERT INTO jeux(NOM,FILE,RULES,categorie,description1) VALUES (?,?,?,?,?)";
@@ -27,5 +27,5 @@ $_SESSION['message'] = "Ajout réussi.";
 header("location:listjeux.php");
 } else {  $_SESSION['message'] = "Problème Ajout.";
 
-    header("location:listjeuxlll.php");  }
+    header("location:listjeux.php");  }
 ?>

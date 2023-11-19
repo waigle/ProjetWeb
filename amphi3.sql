@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 17 Novembre 2023 à 10:40
--- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Hôte : 127.0.0.1
+-- Généré le : dim. 19 nov. 2023 à 18:13
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `amphi3`
+-- Base de données : `amphi3`
 --
 
 -- --------------------------------------------------------
@@ -29,10 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorie` (
   `id_categorie` int(11) NOT NULL,
   `nom_categorie` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Contenu de la table `categorie`
+-- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id_categorie`, `nom_categorie`) VALUES
@@ -55,17 +56,16 @@ CREATE TABLE `jeux` (
   `RULES` longblob NOT NULL,
   `categorie` int(11) NOT NULL,
   `description1` varchar(50000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Contenu de la table `jeux`
+-- Déchargement des données de la table `jeux`
 --
 
 INSERT INTO `jeux` (`ID`, `NOM`, `FILE`, `RULES`, `categorie`, `description1`) VALUES
-(1, 'Monopoly', 'monopoly-standard-2021.jpg', 0x4d6f6e6f706f6c79284672656e6368292e706466, 3, 'Le Monopoly ( litt. Â« monopole Â» en anglais) est un jeu de sociÃ©tÃ© amÃ©ricain Ã©ditÃ© par Hasbro. Le but du jeu consiste Ã  ruiner ses adversaires par des opÃ©rations immobiliÃ¨res. Il symbolise les aspects apparents et spectaculaires du capitalisme, les fortunes se faisant et se dÃ©faisant au fil des coups de dÃ©s.'),
-(2, 'Poker', '7f4b1.jpg', 0x706f6b65722e706466, 5, 'POKER, subst. masc. A. âˆ’ Jeu de cartes oÃ¹ l\'on mise de l\'argent, fondÃ© sur le bluff, dans lequel chaque joueur disposant de cinq cartes peut gagner s\'il possÃ¨de la combinaison la plus forte ou s\'il amÃ¨ne ses adversaires Ã  renoncer au coup de cartes par sa force de conviction, l\'importance de sa mise ou de sa relance.'),
-(3, 'Risk', '5f8ef16a01d78_5010993312306_d6dfb034_c12f_464e_9ad5_da3ef7df6f0a.webp', 0x7269736b2d72c3a8676c65732e706466, 2, 'Le but du jeu de plateau Risk est simple : les joueurs tentent de prendre le contrÃ´le des territoires ennemis en construisant leur armÃ©e, en dÃ©plaÃ§ant des rÃ©giments et en combattant.'),
-(4, 'Tarot', 'selection-de-cartes-de-tarot-dans-un-pack-traditionnel-de-marseille-d865wc.jpg', 0x522d524f3230313230362e706466, 5, 'En plus des 22 Arcanes Majeurs, le Tarot se compose de 4 Suites ou Enseignes qui comprennent chacune 14 Cartes : 10 Cartes numÃ©rotÃ©es de l\'As au 10, 4 Cartes de Cour parfois appelÃ©es â€œHonneursâ€ : le Valet, le Cavalier, la Reine et le Roi.');
+(1, 'Monopoly', 'Monopoly.jpg', 0x31642d6d6f6e6f706f6c792d7265676c652e706466, 3, 'Le Monopoly ( litt. « monopole » en anglais) est un jeu de société américain édité par Hasbro. Le but du jeu consiste à ruiner ses adversaires par des opérations immobilières. Il symbolise les aspects apparents et spectaculaires du capitalisme, les fortunes se faisant et se défaisant au fil des coups de dés.'),
+(2, 'Poker', 'poker.jpg', 0x706f6b65722e706466, 2, 'POKER, subst. masc. A. ? Jeu de cartes où l\'on mise de l\'argent, fondé sur le bluff, dans lequel chaque joueur disposant de cinq cartes peut gagner s\'il possède la combinaison la plus forte ou s\'il amène ses adversaires à renoncer au coup de cartes par sa force de conviction, l\'importance de sa mise ou de sa relance.'),
+(3, 'Risk', 'risk.jpg', 0x63662d7269736b2d7265676c652e706466, 2, 'Le but du jeu de plateau Risk est simple : les joueurs tentent de prendre le contrôle des territoires ennemis en construisant leur armée, en déplaçant des régiments et en combattant.');
 
 -- --------------------------------------------------------
 
@@ -76,14 +76,7 @@ INSERT INTO `jeux` (`ID`, `NOM`, `FILE`, `RULES`, `categorie`, `description1`) V
 CREATE TABLE `liste_jeu` (
   `mail` varchar(50) NOT NULL,
   `id_jeu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `liste_jeu`
---
-
-INSERT INTO `liste_jeu` (`mail`, `id_jeu`) VALUES
-('baptiste@gmail.com', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -94,7 +87,7 @@ INSERT INTO `liste_jeu` (`mail`, `id_jeu`) VALUES
 CREATE TABLE `participe` (
   `mail_participant` varchar(50) NOT NULL,
   `id_session` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -109,7 +102,7 @@ CREATE TABLE `session` (
   `date` date NOT NULL,
   `heure_debut` time NOT NULL,
   `heure_fin` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -123,19 +116,17 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Contenu de la table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`nom`, `prenom`, `email`, `password`, `role`) VALUES
-('Baap', 'aaa', 'baap@gmail.com', '$2y$12$GoyoVrZI4wB4qpm3UMdGZemcrkUbwgn.FIBPxfXRFBqRj8jpCI4o2', 1),
-('Bacha', 'Baptiste', 'baptiste@gmail.com', '$2y$12$m1k.Dnu1YoZIF7XVkBQt9etRDt2vH/dWrB4HyVYUHIYE5Hx7QNyby', 2),
-('Fremaux', 'Jolan', 'jolan@gmail.com', '$2y$12$m1k.Dnu1YoZIF7XVkBQt9etRDt2vH/dWrB4HyVYUHIYE5Hx7QNyby', 1);
+('Bacha', 'Baptiste', 'baptiste@gmail.com', '$2y$12$m1k.Dnu1YoZIF7XVkBQt9etRDt2vH/dWrB4HyVYUHIYE5Hx7QNyby', 2);
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -179,21 +170,23 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`email`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
 -- AUTO_INCREMENT pour la table `jeux`
 --
 ALTER TABLE `jeux`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -221,6 +214,7 @@ ALTER TABLE `participe`
 --
 ALTER TABLE `session`
   ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`id_jeu`) REFERENCES `jeux` (`ID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

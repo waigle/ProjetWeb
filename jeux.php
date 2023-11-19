@@ -22,15 +22,15 @@ $categories = $stmt_categories->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <div class="container">
-<h1>Ajout d'un Jeux </h1>
+<h1>Ajout d'un Jeu </h1>
 <form  method="POST" action="tt_jeux.php" enctype="multipart/form-data">
     <div class="container">
     <div class="row my-3">
         <div class="row">
 
             <div class="col-md-6">
-                <label for="nomjeux" class="form-label">Nom de jeux</label>
-                <input type="text" class="form-control " id="nomjeux" name="nomjeux" placeholder="Nom du jeux..." required>
+                <label for="nomjeux" class="form-label">Nom du jeu</label>
+                <input type="text" class="form-control " id="nomjeux" name="nomjeux" placeholder="Nom du jeu..." required>
             </div>
 
             <div class="col-md-6">

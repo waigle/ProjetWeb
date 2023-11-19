@@ -58,8 +58,16 @@ if ($stmt = $mysqli->prepare("SELECT * FROM user WHERE 1"))
     echo'<td>'.$row['nom'].'</td>';
     echo'<td>'.$row['prenom'].'</td>';
     echo'<td>'.$row['email'].'</td>';
-    echo'<td>'.$row['role'].'</td>';
-   echo'<td><a href="delete.php?email='.$row['email'].'" >Supprimer</a></td>';
+    echo '<td>';
+    if ($row['role'] == 1) {
+        echo 'Élève';
+    } elseif ($row['role'] == 2) {
+      echo 'Admin';
+    } else {
+       echo 'Autre'; // pas de raison d'être normalement
+    }
+    echo '</td>';
+    echo'<td><a href="delete.php?email='.$row['email'].'" >Supprimer</a></td>';
     echo '</tr>';
 $i++;   
 }

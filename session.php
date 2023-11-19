@@ -12,6 +12,15 @@
     $titre = "Session ".$login;
     include 'header.inc.php';
     include 'menu.inc.php';
+
+    // Inclure le fichier de connexion PDO
+require_once("connpdo.php");
+
+// Requête SQL pour récupérer les catégories
+$requete_jeux = "SELECT * FROM jeux";
+$stmt_jeux = $pdo->query($requete_jeux);
+$jeux = $stmt_jeux->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <div class="container">
 
@@ -25,8 +34,15 @@
         <div class="row">
 
             <div class="col-md-6">
-                <label for="jeusession" class="form-label">ID du jeu </label>
-                <input type="text" class="form-control " id="jeusession" name="jeusession" placeholder="Rentrez le jeu..." required>
+            <label for="session_jeu">Choisir le jeu</label>
+            <select id="session_jeu" name="session_jeu" required>
+        <?php
+        // Afficher les options du menu déroulant avec les catégories
+        foreach ($jeux as $jeux) {  //1er $jeux=ligne22 2ème nom de la table dans BDD
+            echo "<option value='" . $jeux['ID'] . "'>" . $jeux['NOM'] . "</option>";
+        }
+        ?>
+    </select><br>
             </div>
 
         </div>
