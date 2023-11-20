@@ -133,7 +133,7 @@ $resultat = $pdo->query($requete);
                 // Affiche le bouton pour télécharger les règles
                 echo '<a href="download.php?id=' . $jeu['ID'] . '"><img src="images/Regle.png" class="card-img" alt="Règle" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
                 // Affiche le bouton pour réserver une date        
-                echo '<a href="PageReservertation/Reserveration.php"><img src="images/Calendrier.png" class="card-img" alt="Calendrier" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
+                echo '<a href="reservation.php?id=' . $jeu['ID'] . '"><img src="images/Calendrier.png" class="card-img" alt="Calendrier" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
                 echo '<a href="like.php?id=' . $jeu['ID'] . '"><img src="images/coeur.png" class="card-img" alt="Like" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
             }
         echo "</div>";
