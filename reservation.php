@@ -24,63 +24,27 @@ $stmt->execute();
 
 // Récupérer les résultats de la requête
 $jeu = $stmt->fetch(PDO::FETCH_ASSOC);
-//echo '<h1>Page pour réserver le jeu ' . htmlspecialchars($jeu['NOM']) . '</h1>';
+echo '<h1>Page pour réserver le jeu ' . htmlspecialchars($jeu['NOM']) . '</h1>';
 
+// Requête SQL pour récupérer les sessions de jeu disponibles
+$requete_sessions = "SELECT * FROM session WHERE id_jeu = :jeuId";
+$stmt_sessions = $pdo->prepare($requete_sessions);
+$stmt_sessions->bindParam(':jeuId', $jeuId, PDO::PARAM_STR);
+$stmt_sessions->execute();
+
+// Récupérer les résultats de la requête
+$resultats_sessions = $stmt_sessions->fetchAll(PDO::FETCH_ASSOC);
+
+// Afficher les sessions disponibles
+echo '<h2>Sessions disponibles :</h2>';
+echo '<ul>';
+foreach ($resultats_sessions as $session) {
+    echo '<li>Date : ' . $session['date'] . ', Heure de début : ' . $session['heure_debut'] . ', Heure de fin : ' . $session['heure_fin'] . '</li>';
+    echo '<a href="inscriptionsession.php?id=' . $session['ID'] . '"><img src="images/coeur.png" class="card-img" alt="Like" style="background: transparent; display:block; width: 100px; height: 100px;"></a>';
+    echo '<br>';
+}
 ?>
-<div class="container">
 
-<h1>Page pour reserver le jeu <?php echo $jeu['NOM']; ?> </h1>
-
-<div class="container">
-
-<form  method="POST" action="tt_sessionDate.php" enctype="multipart/form-data">
-    <div class="container">
-    <div class="row my-3">
-        <div class="row">
-
-            <div class="col-md-6">
-                <label for="jeusession" class="form-label">Rentrer le nom du jeu souhaité : </label>
-                <input type="text" class="form-control " id="jeusession" name="jeusession" placeholder="Rentrez le jeu..." required>
-            </div>
-
-        </div>
-
-
-        <div class="row my-3">
-
-            <div class="col-md-4">
-                <label for="datesession" class="form-label">Date </label>
-                <input type="date" class="form-control " id="datesession" name="datesession" placeholder="Rentrez la date..." required>
-            </div>
-            <div class="col-md-4">
-                <label for="heuredebut" class="form-label">Heure de début </label>
-                <input type="time" class="form-control " id="heuredebut" name="heuredebut" placeholder="h:m:s" required>
-            </div>
-            <div class="col-md-4">
-                <label for="heurefin" class="form-label">heure de fin </label>
-                <input type="time" class="form-control " id="heurefin" name="heurefin" placeholder="h:m:s" required>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-6">
-
-            </div>
-
-            <div class="col-md-6">
-
-            </div>
-
-        </div>
-        <div class="row my-3">
-            <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit">Ajouter</button>
-        </div>
-    </div>
-    </div>
-</form>
-</div>
 <?php
     include 'footer.inc.php';
 ?>
