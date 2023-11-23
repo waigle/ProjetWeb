@@ -1,12 +1,15 @@
-<?php 
-try 
-{
-$strConnection='mysql:host=localhost;dbname=amphi3';
-$pdo=new PDO($strConnection,'root','root');
+<?php
+$host = "localhost";
+$login = "root";
+$passwd = "root";
+$dbname = "amphi3";
 
-}catch (PDOException $e)
-{
-$msg='ERROR PDO ON '. $e->getMessage();
-die($msg);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $login, $passwd);
+    // Paramètres pour avoir des erreurs SQL affichées
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    $msg = 'Erreur PDO : ' . $e->getMessage();
+    die($msg);
 }
 ?>

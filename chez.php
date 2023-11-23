@@ -13,7 +13,7 @@
     include 'menu.inc.php';
 ?>
 <div class="container">
-    <h1>Page de <?php echo $prenom, $nom; ?> </h1>
+    <h1>Page de <?php echo $prenom, $nom ?> </h1>
     <h2>Mes informations : </h2>
     
     <?php
