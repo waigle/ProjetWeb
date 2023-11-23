@@ -105,10 +105,12 @@
         $session_jeu = "SELECT DISTINCT session.date, session.heure_debut, session.heure_fin, jeux.NOM
         FROM session
         JOIN jeux ON session.id_jeu = jeux.ID
-        WHERE session.ID = :id_session";
+        JOIN participe ON session.ID = participe.id_session
+        JOIN user ON user.email = participe.mail_participant
+        WHERE user.email = :login";
 
         $stmt_sessions = $pdo->prepare($session_jeu);
-        $stmt_sessions->bindParam(':id_session', $id_session, PDO::PARAM_STR);
+        $stmt_sessions->bindParam(':login', $login, PDO::PARAM_STR);
         $stmt_sessions->execute();
 
         // Récupérer les résultats de la requête

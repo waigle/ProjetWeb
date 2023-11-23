@@ -42,6 +42,9 @@ if ($_SESSION['PROFILE']['role'] == 2) {
   echo'</li>';
   echo '<a class="nav-link" href="inscriptionadmin.php">Inscription administrateur </a>';
   echo'</li>';
+  echo'</li>';
+  echo '<a class="nav-link" href="listinscription.php">Liste des inscripts </a>';
+  echo'</li>';
 }
 ?>
 

@@ -31,7 +31,7 @@ $categories = $stmt_categories->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="col-md-6">
                 <label for="nom" class="form-label">Nom du jeu</label>
-                <input type="text" class="form-control " id="nom" name="NOM" placeholder="Nom du jeu..." required>
+                <input type="text" class="form-control " id="nom" name="nom" placeholder="Nom du jeu..." required>
             </div>
 
             <div class="col-md-6">
