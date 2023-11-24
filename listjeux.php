@@ -39,9 +39,11 @@ include 'menu.inc.php';
                 echo '<td>' . htmlspecialchars($row['nom_categorie']) . '</td>';
                 echo '<td><img src="RèglesJeux/' . htmlspecialchars($row['RULES']) . '" width="100px" height="100px"></td>';
                 echo '<td><img src="imagesJeux/' . htmlspecialchars($row['FILE']) . '" width="100px" height="100px"></td>';
+                if ($_SESSION['PROFILE']['role'] == 2) {
                 echo '<td><a href="deletejeu.php?ID=' . $row['ID'] . '" >Supprimer</a></td>';
                 echo '<td><a href="modifier.php?id=' . $row['ID'] . '" >Modifier</a></td>';
                 echo '</tr>';
+                }
             }
 
             ?>
